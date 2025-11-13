@@ -1,0 +1,8 @@
+# .dvcignore
+models/
+*.pkl
+*.h5
+*.csv
+*.log
+__pycache__/
+*.pyc
