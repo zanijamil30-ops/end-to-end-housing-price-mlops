@@ -1,1 +1,8 @@
+# src/app/requirements.txt
+fastapi==0.95.0
+uvicorn==0.21.0
+mlflow==2.3.0
+scikit-learn==1.0.2  # Adjust depending on your model requirements
+pydantic==1.10.5
+numpy==1.23.5
 
