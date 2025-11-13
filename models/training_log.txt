@@ -1,0 +1,6 @@
+# Example of saving a simple training log
+with open('models/training_log.txt', 'w') as log_file:
+    log_file.write("Model training log:\n")
+    log_file.write(f"Model: RandomForestRegressor\n")
+    log_file.write(f"Hyperparameters: n_estimators=100, random_state=42\n")
+    log_file.write(f"Training started at: {str(datetime.datetime.now())}\n")
