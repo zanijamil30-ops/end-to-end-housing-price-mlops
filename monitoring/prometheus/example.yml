@@ -1,0 +1,24 @@
+# Example Prometheus configuration for monitoring MLOps infrastructure
+
+global:
+  scrape_interval: 15s  # How often Prometheus scrapes the targets
+
+scrape_configs:
+  - job_name: 'fastapi_model'
+    static_configs:
+      - targets: ['localhost:8000']  # The FastAPI app running locally (or on an EC2 instance)
+
+  # Example scrape configuration for Docker (if used for model inference service)
+  - job_name: 'docker_containers'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['localhost:9090']  # Prometheus metrics exposed by Docker containers (if enabled)
+      
+  # Example scrape configuration for EC2 instances
+  - job_name: 'ec2_instance'
+    static_configs:
+      - targets: ['ec2-instance-ip:9090']  # Replace with your actual EC2 instance IP and Prometheus metrics port
+    relabel_configs:
+      - source_labels: [__param_target]
+        target_label: instance
+        replacement: 'ec2-instance'
