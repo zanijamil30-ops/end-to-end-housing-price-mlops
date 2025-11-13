@@ -1,1 +1,33 @@
+# Development Dockerfile with Jupyter, Debug Tools
+FROM python:3.11-slim
+
+# Set working directory
+WORKDIR /app
+
+# Install system dependencies (optional: could install git, vim, etc., for debugging)
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libatlas-base-dev \
+    git \
+    vim \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install development dependencies
+COPY src/app/requirements.txt /app/
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Install Jupyter for interactive development
+RUN pip install jupyterlab
+
+# Install debugging and profiling tools (e.g., for logging, model introspection)
+RUN pip install ipython pdbpp
+
+# Expose Jupyter port for local development
+EXPOSE 8888
+
+# Copy the code base for development
+COPY src/ /app/
+
+# Command to run Jupyter Lab for development (use `CMD` to keep it open)
+CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--allow-root"]
 
