@@ -1,8 +1,11 @@
-# end-to-end-housing-price-mlops
+# MLOps Project
 
 This is an end-to-end **MLOps** pipeline that demonstrates the full lifecycle of a machine learning project, from data preprocessing, model training, and evaluation to deployment using **FastAPI**, **DVC**, **MLflow**, **Docker**, and **AWS** services. This project showcases how to build, manage, and deploy a machine learning model using modern MLOps practices.
 
+---
+
 ## Table of Contents
+
 1. [Project Overview](#project-overview)
 2. [Technologies Used](#technologies-used)
 3. [Setup Instructions](#setup-instructions)
@@ -12,6 +15,8 @@ This is an end-to-end **MLOps** pipeline that demonstrates the full lifecycle of
 7. [Contributing](#contributing)
 8. [License](#license)
 9. [Contact](#contact)
+
+---
 
 ## Project Overview
 
@@ -24,6 +29,8 @@ This project automates the machine learning workflow, including:
 
 The pipeline includes steps for preprocessing data, training models, logging experiments, and serving the model in a production environment.
 
+---
+
 ## Technologies Used
 
 - **FastAPI**: Web framework for serving the model as an API.
@@ -34,6 +41,8 @@ The pipeline includes steps for preprocessing data, training models, logging exp
 - **GitHub Actions**: Automates CI/CD pipeline for testing and deployment.
 - **Prometheus**: For monitoring metrics related to model serving.
 
+---
+
 ## Setup Instructions
 
 ### Prerequisites
@@ -43,37 +52,53 @@ The pipeline includes steps for preprocessing data, training models, logging exp
 - GitHub account (for version control and CI/CD)
 
 ### Installing Dependencies
-1. Clone the repository:
 
-   ```
+1. **Clone the repository**:
+
+   ```bash
    git clone https://github.com/your-username/your-repository.git
    cd your-repository
 Create and activate a virtual environment:
 
+bash
+Copy code
 python3 -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 Install the required dependencies:
 
+bash
+Copy code
 pip install -r requirements.txt
 Initialize DVC and pull the datasets:
 
+bash
+Copy code
 make dvc-init
 Docker Setup
 Build the Docker image for the FastAPI app:
 
+bash
+Copy code
 make build
 Run the Docker container locally:
 
+bash
+Copy code
 docker run -p 8000:8000 $(DOCKER_IMAGE_NAME)
 How to Run Locally
 Start FastAPI server:
 
 After setting up the environment, you can run the FastAPI app locally:
+
+bash
+Copy code
 make serve
 Test the API:
 
 You can send requests to the FastAPI server running locally at http://localhost:8000. Use the following command to test the /predict endpoint:
 
+bash
+Copy code
 curl -X 'POST' \
   'http://127.0.0.1:8000/predict' \
   -H 'Content-Type: application/json' \
@@ -86,6 +111,8 @@ Run DVC pipeline:
 
 You can run the entire data processing and model training pipeline with DVC:
 
+bash
+Copy code
 make dvc-repro
 CI/CD Pipeline
 The CI/CD pipeline for this project is configured using GitHub Actions. The pipeline includes:
@@ -104,6 +131,8 @@ cd.yml: For deploying the application to AWS.
 Testing
 This project includes both unit tests and integration tests for all major components. To run the tests:
 
+bash
+Copy code
 make test
 The tests are defined in the tests/ directory and include tests for:
 
@@ -136,9 +165,8 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 Contact
 For any questions or feedback, feel free to reach out to:
 
-Your Name: ZAINAB JAMIL
+Your Name
 
-Email: zanijamil30@gmailcom
+Email: your-email@example.com
 
 Thank you for using this MLOps project! Happy coding!
-
