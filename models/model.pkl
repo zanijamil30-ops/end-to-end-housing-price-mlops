@@ -1,0 +1,9 @@
+import joblib
+from sklearn.ensemble import RandomForestRegressor
+
+# Assuming X_train, y_train are your processed features and target
+model = RandomForestRegressor(n_estimators=100, random_state=42)
+model.fit(X_train, y_train)
+
+# Save the trained model to 'model.pkl'
+joblib.dump(model, 'models/model.pkl')
