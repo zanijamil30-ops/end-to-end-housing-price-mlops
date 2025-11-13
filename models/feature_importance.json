@@ -1,0 +1,12 @@
+# Get feature importance (only applicable for tree-based models)
+feature_importance = model.feature_importances_
+
+# Assuming you have the feature names
+features = X.columns.tolist()
+
+# Create a dictionary with feature names and importance values
+importance_dict = dict(zip(features, feature_importance))
+
+# Save to 'feature_importance.json'
+with open('models/feature_importance.json', 'w') as f:
+    json.dump(importance_dict, f)
