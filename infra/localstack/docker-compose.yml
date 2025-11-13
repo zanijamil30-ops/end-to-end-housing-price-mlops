@@ -1,1 +1,27 @@
+version: '3.8'
+
+services:
+  localstack:
+    image: localstack/localstack:latest
+    container_name: localstack_main
+    environment:
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - SERVICES=s3,ecr,iam,ec2
+      - DEBUG=1
+      - DATA_DIR=/tmp/localstack/data
+    ports:
+      - "4566:4566"  # LocalStack API gateway (all services)
+      - "4510-4559:4510-4559"  # Port range for individual services
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "localstack_data:/tmp/localstack"
+    networks:
+      - localstack_network
+
+volumes:
+  localstack_data:
+
+networks:
+  localstack_network:
+    driver: bridge
 
