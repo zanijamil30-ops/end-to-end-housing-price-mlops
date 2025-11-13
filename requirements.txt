@@ -1,0 +1,35 @@
+# Core machine learning and data manipulation libraries
+numpy==1.24.3
+pandas==2.0.2
+scikit-learn==1.2.2
+matplotlib==3.7.1
+seaborn==0.12.2
+
+# MLflow for experiment tracking and model management
+mlflow==2.5.1
+
+# FastAPI for serving the machine learning model via an API
+fastapi==0.95.1
+
+# Uvicorn for FastAPI server execution
+uvicorn==0.22.0
+
+# Docker SDK for Python (if you plan to interact with Docker programmatically)
+docker==6.0.1
+
+# DVC for data version control
+dvc[s3]==2.22.1
+
+# Testing dependencies
+pytest==7.1.2
+pytest-cov==3.0.0
+flake8==5.0.4
+
+# Additional utilities for the MLOps pipeline (e.g., for monitoring)
+prometheus-client==0.15.0
+
+# AWS SDK for Python (boto3) for cloud interactions (e.g., S3, EC2)
+boto3==1.24.24
+
+# Optional: If you need to use Jupyter in your development environment
+jupyter==1.0.0
