@@ -1,0 +1,30 @@
+# dvc.yaml
+
+stages:
+  prepare_data:
+    cmd: python src/data/preprocess.py
+    deps:
+      - data/raw/housing.csv
+      - src/data/preprocess.py
+    outs:
+      - data/processed/housing_processed.csv
+
+  train_model:
+    cmd: python src/model/train.py
+    deps:
+      - data/processed/housing_processed.csv
+      - src/model/train.py
+    outs:
+      - models/model.pkl
+    metrics:
+      - models/metrics.json
+
+  evaluate_model:
+    cmd: python src/model/evaluate.py
+    deps:
+      - models/model.pkl
+      - src/model/evaluate.py
+    outs:
+      - models/evaluation_metrics.json
+    metrics:
+      - models/evaluation_metrics.json
