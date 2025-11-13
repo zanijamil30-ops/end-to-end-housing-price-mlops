@@ -1,0 +1,9 @@
+# .gitignore
+models/
+*.pkl
+*.h5
+*.csv
+*.log
+__pycache__/
+*.pyc
+.DS_Store
