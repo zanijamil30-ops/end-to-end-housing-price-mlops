@@ -4,10 +4,10 @@ This directory contains the raw and processed data used in the project. The data
 
 ## Directory Structure
 
-data/
+```data/
 │
 └── raw/
-└── housing.csv # Raw housing dataset in CSV format
+└── housing.csv # Raw housing dataset in CSV format```
 
 
 ### Dataset Overview
