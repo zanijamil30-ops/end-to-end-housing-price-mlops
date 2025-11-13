@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  mlflow:
+    image: "mlflow/mlflow:latest"
+    container_name: mlflow-server
+    environment:
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+      - BACKEND_STORE_URI=sqlite:///mlflow.db   # Using SQLite database for storing artifacts and metadata
+      - ARTIFACT_ROOT=/mlflow/artifacts        # Folder for storing the artifacts
+    ports:
+      - "5000:5000"  # Exposes the MLflow server on port 5000
+    volumes:
+      - ./mlflow:/mlflow  # Mounts the current directory to persist data
+    command: ["mlflow", "server", "--host", "0.0.0.0", "--port", "5000", "--default-artifact-root", "/mlflow/artifacts", "--backend-store-uri", "sqlite:///mlflow.db"]
+    restart: always
