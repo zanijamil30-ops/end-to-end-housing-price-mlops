@@ -47,5 +47,5 @@ License
 MIT License - See LICENSE
 
 Contact
-Your Name
-Email: your-email@example.com
+Your Name: ZAINAB JAMIL
+Email: zanijamil30@gmail.com
